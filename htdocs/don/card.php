@@ -879,10 +879,8 @@ if (!empty($id) && $action != 'edit') {
 	print '<div class="tabsAction">';
 
 	$parameters = array();
-	$reshook = $hookmanager->executeHooks('addMoreActionsButtons', $parameters, $object, $action); // Note that $action and $object may have been
-
+	$reshook = $hookmanager->executeHooks('addMoreActionsButtons', $parameters, $object, $action);
 	if (empty($reshook)) {
-
 		// Re-open
 		if ($permissiontoadd && $object->statut == $object::STATUS_CANCELED) {
 			print '<a class="butAction" href="'.$_SERVER['PHP_SELF'].'?id='.$object->id.'&action=confirm_reopen&confirm=yes&token='.newToken().'">'.$langs->trans("ReOpen").'</a>';
